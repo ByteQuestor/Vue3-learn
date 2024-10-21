@@ -32,6 +32,15 @@ docker build -t vue3_dev:v1 .
 docker run -it -p 8080:8080 \
 --name vuetest \
 -e VUE_PROJECT_NAME=my-test-1 \
--v /root/app:/app vue3-dev:v1
+-v /root/app:/app vue3_dev:v1
 ```
 
+注意：仍然有交互式，输一个`Y`即可等待`Vue3`创建一个基本项目
+
+```shell
+[root@localhost ~]# docker run -it -p 8080:8080 --name vuetest -e VUE_PROJECT_NAME=my-test-1 -v /root/app:/app vue3_dev:v1
+?  Your connection to the default yarn registry seems to be slow.
+   Use https://registry.npmmirror.com for faster installation? (Y/n) Y
+```
+
+如何远程开发宿主机的`/root/app`中的项目即可
