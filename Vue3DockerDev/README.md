@@ -45,4 +45,4 @@ docker run -it -p 8080:8080 \
    Use https://registry.npmmirror.com for faster installation? (Y/n) Y
 ```
 
-然后远程开发宿主机的`/root/app`中的项目即可，开放的端口是为了访问看效果的，此开发不用进容器
+然后远程开发宿主机的`/root/app`中的项目即可，开放的端口是为了访问看效果的，**此开发不用进容器**
