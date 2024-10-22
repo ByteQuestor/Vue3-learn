@@ -1,5 +1,7 @@
 # 关于构建Vue3远程开发
 
+> 初始版本MD5值：`31e06415c5bc6b142d482ea057c8388a`
+
 ```dockerfile
 # 使用官方 Node.js 镜像
 FROM node:20.18.0
