@@ -1,6 +1,10 @@
 # 关于构建Vue3远程开发
 
-> 初始版本MD5值：`31e06415c5bc6b142d482ea057c8388a`
+> 本地版本`MD5`值：`31e06415c5bc6b142d482ea057c8388a`
+>
+> 拉取方法：`docker pull bytequestor/vue3_dev:v1`
+>
+> 注意：拉下来的`MD5`值会不一样
 
 ```dockerfile
 # 使用官方 Node.js 镜像
