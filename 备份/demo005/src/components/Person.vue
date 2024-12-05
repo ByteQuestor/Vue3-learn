@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2024-12-05 10:14:24
- * @LastEditTime: 2024-12-05 16:37:54
+ * @LastEditTime: 2024-12-05 15:45:54
  * @FilePath: \Vue3-learn\hello_vue3\src\components\Person.vue
  * @Description: 
  * 
@@ -11,15 +11,13 @@
 <template>
     <div class="person">
         <h1>一辆{{ car.brand }}车，价格是{{ car.price }}万</h1>
-        
-        <button @click="changeCarName">修改名字</button>
-        <button @click="chanceCarPrice">增加十万块</button>
-        <button @click="chanceCar">换车</button>
+        <button @click="chancePrice">增加十万块</button>
         <ul>
             <li v-for="g in games" :key="g.id" >
                 {{ g.name }}
             </li>
         </ul>
+        <button @click="chanceFirstGamename">修改第一个游戏的名字</button>
     </div>
 </template>
 
@@ -29,17 +27,17 @@ import { reactive } from 'vue';
         brand:'奔驰',
         price:100
     })
-    function changeCarName(){
-        car.brand = "宝马"
+    let games = reactive([
+    {id:"wzy01",name:"王者荣耀"},
+    {id:"wzy02",name:"元神"},
+    {id:"wzy03",name:"黑神话"},
+    ])
+    function chancePrice(){
+        car.price +=10
+        console.log(car.price)
     }
-    function chanceCarPrice(){
-        car.price += 10
-    }
-    function chanceCar(){
-        Object.assign(car,{
-        brand:'奥迪',
-        price:200
-    })
+    function chanceFirstGamename(){
+        games[0].name = '流星蝴蝶剑'
     }
 </script>
 
