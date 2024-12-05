@@ -93,4 +93,25 @@
 
   直接`ctrl + C`即可
 
-  
+
+
+
+# 第四节课【编写`vue`组件】
+
+`demo001`
+
+# 第五节课【一个简单的效果】
+
+`vscode`同时修改多行多列，`shift+alt`拖动选择列，然后输入，可以在多行输入相同内容
+`demo002`
+
+# 第六课【OptionsApi与CompositionApi】
+
+之前用的是`OptionsApi`选项式，以后用`CompositionApi`组合式
+
+# 第七课【setup概述】
+
+`demo003`
+
+
+
