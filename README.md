@@ -452,3 +452,21 @@ import { reactive } from 'vue';
 
 
 
+# `toRefs`和`toRef`
+
+应用场景：使用`reactive`定义了一个响应式对象，如果通过
+
+```vue
+let {name,age} = person
+# 可以直接使用``name或age，但是此时并不是响应式的
+# 破局手法
+let {name,age} = toRefs(person)
+   
+# toRef
+let nos = toRef(person,'age')
+console.log("xx" + nos.value)
+```
+
+个人见解：
+
+当我们定义了一个对象类，可以直接用这个包起来，然后直接解构出来使用，但是似乎并没有直接创建响应式方便
