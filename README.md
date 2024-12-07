@@ -452,7 +452,7 @@ import { reactive } from 'vue';
 
 
 
-# `toRefs`和`toRef`
+# 第15课【`toRefs`和`toRef`】
 
 应用场景：使用`reactive`定义了一个响应式对象，如果通过
 
@@ -470,3 +470,30 @@ console.log("xx" + nos.value)
 个人见解：
 
 当我们定义了一个对象类，可以直接用这个包起来，然后直接解构出来使用，但是似乎并没有直接创建响应式方便
+
+# 第16课【`computed`计算属性】
+
+本节案例：两个输入框，一个结果显示，拼接姓和名
+
+`computed`调用方法，它有缓存，相同的调用只计算一次
+
+```
+import {ref,computed} from "vue"
+let fullName = computed(()=>{
+    return "666-666"
+})
+```
+
+与方法的区别是：方法是调用一次就运行一次，而计算的好处是，相同的调用只运行一次
+
+本节注意`v-model:value="firstName"`，缩写为`v-model="firstName"`，双向绑定，当输入框里变了，也会带动变量变化
+
+```html
+    <div class="person">
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        姓名：<span>{{ fullName }} </span>
+    </div>
+```
+
+`v-bind:value="firstName"`，缩写为`:value="firstName"`，单向绑定，只会把数据绑定到页面上，页面变化不会引起变量变化

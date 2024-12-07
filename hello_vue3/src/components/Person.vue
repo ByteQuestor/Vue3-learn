@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2024-12-05 10:14:24
- * @LastEditTime: 2024-12-07 21:24:42
+ * @LastEditTime: 2024-12-07 22:09:01
  * @FilePath: \Vue3-learn\hello_vue3\src\components\Person.vue
  * @Description: 
  * 
@@ -10,32 +10,19 @@
 
 <template>
     <div class="person">
-        <h2>姓名：{{ name }}</h2>
-        <h2>年龄：{{ age }}</h2>
-        <button @click="changeName">修改名字</button>
-        <button @click="changeAge">修改年龄</button>
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        姓名：<span>{{ fullName }} </span>
     </div>
 </template>
 
 <script setup name="Person">
-    import {reactive, toRef, toRefs} from "vue"
-    let person = reactive ({
-        name : "王子阳",
-        age : 22
-    })
-    let {name,age} = toRefs(person)
-    let nos = toRef(person,'age')
-    console.log("xx" + nos.value)
-    function changeName(){
-        name.value += "+"
-        console.log("xx" + name.value)
-    }
-    function changeAge(){
-        age.value +=1
-        
-        console.log(age.value)
-    }
-    
+import {ref,computed} from "vue"
+let firstName = ref("aaaa")
+let lastName = ref("bbbb")
+let fullName = computed(()=>{
+    return firstName.value + "-" + lastName.value
+})
 </script>
 
 <style>
