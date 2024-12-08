@@ -1,5 +1,23 @@
 # `Vue3-learn`
 
+# 第三方库
+
++ Apache ECharts
+
+  一个基于 JavaScript 的开源可视化图表库
+
+  [快速入门](https://echarts.apache.org/handbook/zh/get-started)
+  [所有示例](https://echarts.apache.org/examples/zh/index.html)
+
++ `Vue Data UI`
+
+  一个专为Vue3设计的数据可视化组件库
+  [Vue Data UI](https://vue-data-ui.graphieros.com/)
+
++ Element Plus
+
+  一个`vue3 UI`框架，基于` Vue 3`，面向设计师和开发者的组件库，不止有数据
+
 # 第一节课【课程介绍】
 
 本次采用`TypeScript` + 组合式`API` + `setup`语法糖
