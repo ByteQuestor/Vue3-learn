@@ -527,6 +527,8 @@ console.log("xx" + nos.value)
 
 # 第16课【`computed`计算属性】
 
+`demo009`
+
 本节案例：两个输入框，一个结果显示，拼接姓和名
 
 `computed`调用方法，它有缓存，相同的调用只计算一次
@@ -551,3 +553,210 @@ let fullName = computed(()=>{
 ```
 
 `v-bind:value="firstName"`，缩写为`:value="firstName"`，单向绑定，只会把数据绑定到页面上，页面变化不会引起变量变化
+
+
+
+# 第17-22课【watch监视】
+
+监视数据，应用场景：
+
+当年龄大于18岁做个什么操作，或者订单大于一万块，向后端请求一个优惠券
+
+能监视的四种东西
+
++ `ref`定义的数据
++ `reactive`定义的数据
++ 函数返回一个值（`getter`函数）
++ 包含  上述内容的数组
+
+## 情况一
+
+在监视里改变值的话，需要带上条件停止监视，不然就递归了
+
+本次案例：使用`ref`声明一个响应式数据【年龄】，监视到`18`后不再监视，代码如下
+
+```vue
+<template>
+    <div class="person">
+        <h1>情况一：【ref】定义的【基本类型】数据</h1>
+        年龄：<span>{{ age }}</span>
+        <button @click="addAge">增加年龄</button>
+    </div>
+</template>
+
+<script setup name="Person">
+import { ref, watch } from 'vue'
+let age = ref(0)
+function addAge() {
+    age.value += 1
+}
+const wzy_stop = watch(age, (newValue, oldValue) => {
+    console.log("sum变化了", newValue, oldValue)
+    if (newValue >= 18) {
+        wzy_stop()
+    }
+}
+)
+</script>
+```
+
+## 情况二
+
+本节简述，当`watch`监视`ref`定义的对象类型的数据的时候，坚实的是地址，如下代码，`{deep:true}`是开启深层监视，即监视到对象的每一个变量，但是，当对象的变量发生变化后，可以看到`watch`的新值和旧址是一样的，这是因为对象的地址没有变化，而直接替换整个对象会发现，新值和旧址是不一样的，原因就是，监视`ref`定义的对象是监视地址
+
+```vue
+<template>
+    <div class="person">
+        <h1>情况二：【ref】定义的【对象类型】数据</h1>
+        姓名：<span>{{ person.name }}</span><br>
+        年龄：<span>{{ person.age }}</span><br>
+        <button @click="changeName">修改名字</button>
+        <button @click="addAge">增加年龄</button>
+        <button @click="changePerson">修改对象</button>
+    </div>
+</template>
+
+<script setup name="Person">
+import { ref, watch } from 'vue'
+let person = ref({
+    name: "王子阳",
+    age: 0
+})
+function addAge() {
+    person.value.age += 1
+}
+function changeName() {
+    person.value.name += "~"
+}
+function changePerson() {
+    person.value = { name: "张三", age: 90 }
+}
+watch(person, (newVal, oldVal) => {
+    console.log('变化了', newVal, oldVal)
+},{deep:true})
+</script>
+```
+
+## 情况三
+
+> 监视`reactive`创建的对象类型
+
+与`ref`的区别，`ref`改地址了，`reactive`是替换，地址没变，所以`ref`才是替换，而`reactive`是修改
+
+`reactive`优势：默认开启深度监听，适合数据层级比较深，而且地址不会变化，新版本可以关闭这个深度监听
+
+代码与上述类似
+
+## 情况四
+
+监视`ref`和`reactive`定义的对象中的某个属性，且该属性是对象类型，可以直接写，但是最好是写`函数`，因为函数监视地址值
+
+`()=>{ return person.car}`可缩写为`()=>person.car`，实现的是`getter`函数的功能
+
+```vue
+<template>
+    <div class="person">
+        <h1>情况二：【ref】定义的【对象类型】数据</h1>
+        姓名：<span>{{ person.name }}</span><br>
+        年龄：<span>{{ person.age }}</span><br>
+        车：<span>{{ person.car.C1 }} - {{ person.car.C2 }}</span>
+        <button @click="changeName">修改名字</button>
+        <button @click="addAge">增加年龄</button>
+        <button @click="changeC1">修改C1</button>
+        <button @click="changeC2">修改C2</button>
+        <button @click="changeCar">修改Car</button>
+    </div>
+</template>
+
+<script setup name="Person">
+import { reactive, watch } from 'vue'
+let person = reactive({
+    name: "王子阳",
+    age: 0,
+    car: {
+        C1: "奥迪",
+        C2: "奔驰"
+    }
+})
+function addAge() {
+    person.age += 1
+}
+function changeName() {
+    person.name += "~"
+}
+
+function changeC1() {
+    person.car.C1 = "宝马"
+}
+function changeC2() {
+    person.car.C2 = "法拉利"
+}
+function changeCar() {
+    person.car = { C1: '爱玛', C2: '九号' }
+}
+    //监视对象的基本类型
+watch(()=>person.name,(newVal,oldVal)=>{
+    console.log("名字改变了",newVal,oldVal)
+})
+    //监视对象的对象类型
+watch(()=>person.car,(newCar,oldCar)=>{
+    console.log("车被改变了",newCar,oldCar)
+},{deep:true})
+</script>
+```
+
+## 情况五
+
+监视一个对象的多个数据，比如监视一个人的**名字**和**第一台车**，其余代码和情况四一致
+
+```vue
+watch([()=>person.car,()=>person.car.C1],(newCar,oldCar)=>{
+    console.log("车被改变了",newCar,oldCar)
+},{deep:true})
+```
+
+硅谷甄选
+
+上处情况位于`demo010`
+
+## `watchEffect`
+
+跟`watch`的区别，`watch`需要指明监视什么，而`watchEffect`不需要指明，用到哪个就监视哪个
+
+```vue
+<template>
+    <div class="person">
+        <h1>水温：{{ tmp }} ℃</h1>
+        <h2>水位：{{ hig }} CM</h2>
+        <button @click="changeTmp">水温+10 ℃</button>
+        <button @click="changeHig">水位+10 CM</button>
+    </div>
+</template>
+
+<script setup name="Person">
+import { ref, watch, watchEffect } from 'vue';
+
+    let tmp = ref(0)
+    let hig = ref(0)
+    function changeTmp(){
+        tmp.value += 10
+    }
+    function changeHig(){
+        hig.value += 10
+    }
+    /*
+    如果用watch，那么我如果需要监视很多数据，一个一个的指定肯定是不现实
+    */
+    // watch([tmp,hig],()=>{
+    //     if(tmp.value >= 60 || hig.value >=70){
+    //         console.log("发送短信")
+    //     }
+    // })
+    watchEffect(()=>{
+        if(tmp.value >= 60 || hig.value >=70){
+            console.log("发送短信")
+        }
+    })
+</script>
+```
+
