@@ -2,6 +2,8 @@
 
 # 第三方库
 
+## 数据
+
 + `Apache ECharts`
 
   > 一个基于 JavaScript 的开源可视化图表库
@@ -14,11 +16,43 @@
   > 一个专为`Vue3`设计的数据可视化组件库
   > [Vue Data UI](https://vue-data-ui.graphieros.com/)
 
+## 组件
+
 + `Element Plus`
 
-  > ，基于` Vue 3`，面向设计师和开发者的组件库，不止有数据
+  > 基于` Vue 3`，面向设计师和开发者的组件库，不止有数据
 
   [一个 Vue 3 UI 框架 | Element Plus](https://element-plus.org/zh-CN/#/zh-CN)
+
++ `primevue`
+  一个vue组件库
+
+  The Next-Gen UI Suite for **Vue.js**
+  https://primevue.org/
+
+## 模板
+
++ free HTML templates
+  完整的网站模板
+
+  https://htmlrev.com/
+
+## CSS
+
+### 样式
+
++ `UIverse`
+
+  `The Largest Library of Open-Source UI`
+  `CSS`库，纯`html`
+  https://uiverse.io/
+
++ `NavNav+`
+
+  `CSS`库，纯`html`
+  https://navnav.co/
+
+### 动画
 
 # 第一节课【课程介绍】
 
