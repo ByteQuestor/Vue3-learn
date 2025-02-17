@@ -1,0 +1,94 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path" : "pages/demo-text/demo-text",
+			"style" : 
+			{
+				"navigationBarTitleText" : "text标签演示"
+			}
+		},
+		{
+			"path" : "pages/demo-image/demo-image",
+			"style" : 
+			{
+				"navigationBarTitleText" : "text标签演示"
+			}
+		},
+		{
+			"path" : "pages/demo-swiper/demo-swiper",
+			"style" : 
+			{
+				"navigationBarTitleText" : "轮播图演示"
+			}
+		},
+		{
+			"path" : "pages/demo-input/demo-input",
+			"style" : 
+			{
+				"navigationBarTitleText" : "输入框"
+			}
+		},
+		{
+			"path" : "pages/demo-button/demo-button",
+			"style" : 
+			{
+				"navigationBarTitleText" : "按钮组件"
+			}
+		},
+		{
+			"path" : "pages/demo-form/demo-form",
+			"style" : 
+			{
+				"navigationBarTitleText" : "表单组件"
+			}
+		},
+		{
+			"path" : "pages/demo-picker/demo-picker",
+			"style" : 
+			{
+				"navigationBarTitleText" : "选择器"
+			}
+		},
+		{
+			"path" : "pages/demo-vue3/demo-vue3",
+			"style" : 
+			{
+				"navigationBarTitleText" : "文本插值，属性绑定"
+			}
+		},
+		{
+			"path" : "pages/demo5-2-ref/demo5-2-ref",
+			"style" : 
+			{
+				"navigationBarTitleText" : "响应式状态"
+			}
+		},
+		{
+			"path" : "pages/demo5-3-ref/demo5-3-ref",
+			"style" : 
+			{
+				"navigationBarTitleText" : "ref深层次响应"
+			}
+		},
+		{
+			"path" : "pages/demo5-4-v-on/demo5-4-v-on",
+			"style" : 
+			{
+				"navigationBarTitleText" : "v-on事件"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}
