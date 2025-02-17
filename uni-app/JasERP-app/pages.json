@@ -82,6 +82,20 @@
 			{
 				"navigationBarTitleText" : "v-on事件"
 			}
+		},
+		{
+			"path" : "pages/demo5-5-v-model/demo5-5-v-model",
+			"style" : 
+			{
+				"navigationBarTitleText" : "双向绑定"
+			}
+		},
+		{
+			"path" : "pages/demo5-6-v-if-show/demo5-6-v-if-show",
+			"style" : 
+			{
+				"navigationBarTitleText" : "v-if和v-show"
+			}
 		}
 	],
 	"globalStyle": {

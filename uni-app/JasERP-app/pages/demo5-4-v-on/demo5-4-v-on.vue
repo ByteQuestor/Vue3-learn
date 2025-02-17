@@ -1,5 +1,5 @@
 <template>
-	<!--两种写法均可-->
+	<!--两种写法均可，下方为简写-->
 	
 <!-- 	<view
 		style="background-color: aquamarine;padding: 20rpx;"
