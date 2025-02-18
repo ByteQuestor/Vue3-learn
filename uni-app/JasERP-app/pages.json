@@ -145,6 +145,27 @@
 			{
 				"navigationBarTitleText" : "滚动事件"
 			}
+		},
+		{
+			"path" : "pages/demo6-4-apiTo/demo6-4-apiTo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "api跳转界面"
+			}
+		},
+		{
+			"path" : "pages/demo6-5-getApp/demo6-5-getApp",
+			"style" : 
+			{
+				"navigationBarTitleText" : "获取全局变量"
+			}
+		},
+		{
+			"path" : "pages/demo6-6-getCUrrentPage/demo6-6-getCUrrentPage",
+			"style" : 
+			{
+				"navigationBarTitleText" : "获取页面路由"
+			}
 		}
 	],
 	"globalStyle": {

@@ -1,4 +1,5 @@
 <template>
+	
 	<view>
 		<view class="" v-for="item in 100">
 			{{item}}
@@ -7,6 +8,7 @@
 	<view class="top" v-if="show">
 		返回顶部
 	</view>
+	
 </template>
 
 <script setup>
@@ -14,6 +16,7 @@
 	import {onLoad,onPageScroll} from '@dcloudio/uni-app'
 	let good = ref({})
 	let show = ref(false)
+	console.log(getCurrentPages())
 	onLoad((event)=>{
 		console.log(event)
 		good.value.id = event.id
@@ -27,6 +30,7 @@
 			show.value = false
 		}
 	})
+	
 </script>
 
 <style>
@@ -40,4 +44,5 @@
 		padding: 60rpx;
 		border-radius: 50%;
 	}
+	
 </style>
