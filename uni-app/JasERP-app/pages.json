@@ -96,6 +96,34 @@
 			{
 				"navigationBarTitleText" : "v-if和v-show"
 			}
+		},
+		{
+			"path" : "pages/demo5-7-v-for/demo5-7-v-for",
+			"style" : 
+			{
+				"navigationBarTitleText" : "v-for的用法"
+			}
+		},
+		{
+			"path" : "pages/demo5-8-v-for-key/demo5-8-v-for-key",
+			"style" : 
+			{
+				"navigationBarTitleText" : "v-for中key的作用"
+			}
+		},
+		{
+			"path" : "pages/demo5-9-computed/demo5-9-computed",
+			"style" : 
+			{
+				"navigationBarTitleText" : "计算属性"
+			}
+		},
+		{
+			"path" : "pages/demo5-10-watch/demo5-10-watch",
+			"style" : 
+			{
+				"navigationBarTitleText" : "监听器"
+			}
 		}
 	],
 	"globalStyle": {
