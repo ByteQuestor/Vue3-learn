@@ -124,6 +124,27 @@
 			{
 				"navigationBarTitleText" : "监听器"
 			}
+		},
+		{
+			"path" : "pages/demo6-1-Load-Show-Hide/demo6-1-Load-Show-Hide",
+			"style" : 
+			{
+				"navigationBarTitleText" : "加载显示隐藏界面函数"
+			}
+		},
+		{
+			"path" : "pages/demo6-2/demo6-2",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/demo6-3-scroll/demo6-3-scroll",
+			"style" : 
+			{
+				"navigationBarTitleText" : "滚动事件"
+			}
 		}
 	],
 	"globalStyle": {
