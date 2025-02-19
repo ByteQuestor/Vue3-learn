@@ -1,0 +1,1 @@
+<view><picker mode="selector" name="major" bindchange="{{a}}" range="{{b}}">选择专业</picker><view class="">{{c}}</view><picker mode="date" name="date" bindchange="{{d}}">选择日期</picker><view class="">{{e}}</view><picker mode="time" name="time" bindchange="{{f}}">选择日期</picker><view class="">{{g}}</view></view>

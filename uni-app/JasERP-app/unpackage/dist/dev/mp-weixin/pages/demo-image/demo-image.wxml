@@ -1,0 +1,1 @@
+<view class="img-wrap"><image src="{{a}}" mode="aspectFit" class="img"></image></view><view class="price"> ￥14元 </view>

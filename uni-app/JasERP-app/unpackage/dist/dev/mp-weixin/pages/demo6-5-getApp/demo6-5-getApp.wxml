@@ -1,0 +1,1 @@
+<view> 获取全局变量 </view><button type="primary" bindtap="{{a}}">跳转到6-4，并输出修改后的全局变量</button>

@@ -1,0 +1,1 @@
+<view class="nav" bindtap="{{a}}"> 跳转到另一个界面 </view>

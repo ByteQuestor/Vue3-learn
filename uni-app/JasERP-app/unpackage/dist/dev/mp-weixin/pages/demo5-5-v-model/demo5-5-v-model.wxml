@@ -1,0 +1,1 @@
+<view><view class=""> 预览变量 </view><view style="font-size:46rpx">{{a}}</view><view class=""> 预览对象 </view><view style="font-size:46rpx">{{b}}</view></view>

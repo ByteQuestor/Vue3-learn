@@ -1,0 +1,1 @@
+<view><button type="warn" bindtap="{{a}}">提交</button></view>

@@ -5,22 +5,14 @@
 			<text class="title">{{title}}</text>
 		</view>
 	</view>
+	<view v-for="item in 100" class="text-area">
+		{{item}}
+	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+<script setup>
+	
+	let title = "nihao"
 </script>
 
 <style>

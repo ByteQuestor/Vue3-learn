@@ -1,0 +1,1 @@
+{"version":3,"file":"home.js","sources":["D:/root/green/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvZGVtbzctMi10YWJiYXIvaG9tZS9ob21lLnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'E:/User/wzy/github/Vue3-learn/uni-app/JasERP-app/pages/demo7-2-tabbar/home/home.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

@@ -1,0 +1,1 @@
+<view wx:for="{{a}}" wx:for-item="item" wx:key="c"><view class="aaa"> 下标{{item.a}} - 元素{{item.b}}</view></view><view wx:for="{{b}}" wx:for-item="item" wx:key="d"> id:{{item.a}} - 姓名：{{item.b}} - 成绩：{{item.c}}</view><block wx:for="{{c}}" wx:for-item="item" wx:key="e"><view wx:if="{{item.a}}" class="aaa"> id：{{item.b}} - 姓名:{{item.c}} - 成绩：{{item.d}}</view></block>

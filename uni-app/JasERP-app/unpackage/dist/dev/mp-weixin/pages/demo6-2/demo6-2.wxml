@@ -1,0 +1,1 @@
+<view class="nav" bindtap="{{a}}"> 返回上一个界面 </view><view class="nav" bindtap="{{b}}"> 重加载 </view><view>{{c}} --- {{d}}</view>

@@ -1,0 +1,1 @@
+{"version":3,"file":"sort.js","sources":["D:/root/green/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvZGVtbzctMi10YWJiYXIvc29ydC9zb3J0LnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'E:/User/wzy/github/Vue3-learn/uni-app/JasERP-app/pages/demo7-2-tabbar/sort/sort.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

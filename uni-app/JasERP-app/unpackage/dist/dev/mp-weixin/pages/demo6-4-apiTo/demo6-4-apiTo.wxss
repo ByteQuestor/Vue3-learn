@@ -1,0 +1,17 @@
+
+.top{
+		position: fixed;
+		bottom: 100rpx;
+		right: 50rpx;
+		background-color: gold;
+		width: 60rpx;
+		height: 60rpx;
+		padding: 60rpx;
+		border-radius: 50%;
+}
+.nav{
+		font-size: 50rpx;
+		background-color: aquamarine;
+		padding: 20rpx;
+		margin: 20rpx;
+}

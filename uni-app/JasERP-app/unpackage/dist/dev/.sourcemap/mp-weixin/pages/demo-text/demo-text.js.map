@@ -1,0 +1,1 @@
+{"version":3,"file":"demo-text.js","sources":["D:/root/green/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvZGVtby10ZXh0L2RlbW8tdGV4dC52dWU"],"sourcesContent":["import MiniProgramPage from 'E:/User/wzy/github/Vue3-learn/uni-app/JasERP-app/pages/demo-text/demo-text.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

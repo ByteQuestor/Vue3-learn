@@ -1,0 +1,1 @@
+<view><input type="number" class="ipt" placeholder="请输入内容" maxlength="10" bindinput="{{a}}" bindconfirm="{{b}}"/></view>

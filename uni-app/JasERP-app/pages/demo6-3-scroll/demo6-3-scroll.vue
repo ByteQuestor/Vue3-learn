@@ -12,8 +12,9 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue';
-	import {onLoad,onPageScroll} from '@dcloudio/uni-app'
+	//这是配置了自动导入的效果
+	// import { ref } from 'vue';
+	// import {onLoad,onPageScroll} from '@dcloudio/uni-app'
 	let good = ref({})
 	let show = ref(false)
 	console.log(getCurrentPages())

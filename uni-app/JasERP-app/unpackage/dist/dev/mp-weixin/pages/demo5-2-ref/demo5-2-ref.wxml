@@ -1,0 +1,1 @@
+<view></view><view style="{{'width:' + '300rpx' + ';' + ('height:' + a) + ';' + ('background-color:' + 'red')}}"> v-bind指令 </view><view>{{b}}</view><view>{{c}}</view>

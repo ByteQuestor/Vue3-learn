@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/demo-text/demo-text",
+    "pages/demo-image/demo-image",
+    "pages/demo-swiper/demo-swiper",
+    "pages/demo-input/demo-input",
+    "pages/demo-button/demo-button",
+    "pages/demo-form/demo-form",
+    "pages/demo-picker/demo-picker",
+    "pages/demo-vue3/demo-vue3",
+    "pages/demo5-2-ref/demo5-2-ref",
+    "pages/demo5-3-ref/demo5-3-ref",
+    "pages/demo5-4-v-on/demo5-4-v-on",
+    "pages/demo5-5-v-model/demo5-5-v-model",
+    "pages/demo5-6-v-if-show/demo5-6-v-if-show",
+    "pages/demo5-7-v-for/demo5-7-v-for",
+    "pages/demo5-8-v-for-key/demo5-8-v-for-key",
+    "pages/demo5-9-computed/demo5-9-computed",
+    "pages/demo5-10-watch/demo5-10-watch",
+    "pages/demo6-1-Load-Show-Hide/demo6-1-Load-Show-Hide",
+    "pages/demo6-2/demo6-2",
+    "pages/demo6-3-scroll/demo6-3-scroll",
+    "pages/demo6-4-apiTo/demo6-4-apiTo",
+    "pages/demo6-5-getApp/demo6-5-getApp",
+    "pages/demo6-6-getCUrrentPage/demo6-6-getCUrrentPage",
+    "pages/demo7-1-pulldownrefresh/demo7-1-pulldownrefresh",
+    "pages/demo7-2-tabbar/demo7-2-tabbar",
+    "pages/demo7-2-tabbar/home/home",
+    "pages/demo7-2-tabbar/sort/sort",
+    "pages/demo7-2-tabbar/mine/mine",
+    "pages/demo7-3-switchTab/demo7-3-switchTab"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#ccc",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 200
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ffff7f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/demo7-2-tabbar/demo7-2-tabbar",
+        "text": "首页",
+        "iconPath": "/static/icon/home.png",
+        "selectedIconPath": "/static/icon/home_yes.png"
+      },
+      {
+        "pagePath": "pages/demo7-2-tabbar/sort/sort",
+        "text": "分类",
+        "iconPath": "/static/icon/sort.png",
+        "selectedIconPath": "/static/icon/sort_yes.png"
+      },
+      {
+        "pagePath": "pages/demo7-2-tabbar/mine/mine",
+        "text": "我的",
+        "iconPath": "/static/icon/mine.png",
+        "selectedIconPath": "/static/icon/mine_yes.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

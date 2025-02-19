@@ -1,0 +1,1 @@
+<view><button type="primary" bindtap="{{a}}">跳转界面</button></view>

@@ -1,0 +1,1 @@
+<view style="background-color:aquamarine;padding:20rpx" bindtap="{{a}}"> 商品：麻辣薯条 </view>

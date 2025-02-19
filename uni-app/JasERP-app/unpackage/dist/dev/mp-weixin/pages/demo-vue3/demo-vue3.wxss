@@ -1,0 +1,9 @@
+
+.aaa{
+		background-color: seagreen;
+		padding: 40rpx;
+}
+.bbb{
+		background-color: firebrick;
+		padding: 40rpx;
+}

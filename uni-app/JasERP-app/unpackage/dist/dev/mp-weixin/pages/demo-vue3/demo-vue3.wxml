@@ -1,0 +1,1 @@
+<view>{{a}} {{b}} {{c}} <view class="">{{d}}</view></view><image src="{{e}}" mode=""></image><view class="{{[f && 'bbb']}}"> v-bind指令 </view><view class="{{g}}"> v-bind指令 </view><view style="{{'width:' + '300rpx' + ';' + ('height:' + h) + ';' + ('background-color:' + 'red')}}"> v-bind指令 </view>

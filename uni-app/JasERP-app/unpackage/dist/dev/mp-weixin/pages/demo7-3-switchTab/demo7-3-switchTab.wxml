@@ -1,0 +1,1 @@
+<view class="nav" bindtap="{{a}}"> 跳转到tabbar界面 </view>

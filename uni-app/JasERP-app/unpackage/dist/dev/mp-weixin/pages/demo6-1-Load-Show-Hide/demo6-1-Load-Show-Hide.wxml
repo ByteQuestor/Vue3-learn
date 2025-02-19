@@ -1,0 +1,1 @@
+<view>{{a}}</view><navigator url="/pages/demo5-3-ref/demo5-3-ref" class="nav">跳转界面</navigator><navigator url="/pages/demo5-3-ref/demo5-3-ref" open-type="redirect" class="nav">跳转界面并重定向</navigator><navigator url="/pages/demo6-2/demo6-2?name=辣条&id=1234" open-type="navigate" class="nav">跳转界面并携带参数</navigator>

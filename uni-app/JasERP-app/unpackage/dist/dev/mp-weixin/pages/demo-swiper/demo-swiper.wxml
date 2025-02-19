@@ -1,0 +1,1 @@
+<view><swiper class="swiper-wary"><swiper-item><image src="{{a}}" mode="aspectFit" class="img"></image></swiper-item><swiper-item><image src="{{b}}" mode="aspectFit" class="img"></image></swiper-item></swiper></view>

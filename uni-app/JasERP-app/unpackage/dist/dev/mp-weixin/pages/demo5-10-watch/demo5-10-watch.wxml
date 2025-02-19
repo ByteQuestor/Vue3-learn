@@ -1,0 +1,1 @@
+<view><input class="ipt" type="text" placeholder="请输入姓名" value="{{a}}" bindinput="{{b}}"/></view><view class=""> 预览：{{c}}</view><view><input class="ipt" type="text" placeholder="请输入年龄" value="{{d}}" bindinput="{{e}}"/></view><view class=""> 预览：{{f}}</view><view><input class="ipt" type="text" value="{{g}}" bindinput="{{h}}"/></view><view class=""> 监听对象：{{i}}</view>

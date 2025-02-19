@@ -3,6 +3,8 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			//调用变量
+			console.log(this.globalData.httpUrl)
 		},
 		onShow: function() {
 			console.log('App Show')

@@ -1,0 +1,10 @@
+
+.aaa{
+		background-color: greenyellow;
+		margin: 20rpx 20rpx;
+		padding: 20rpx;
+		text-align: center;
+}
+.bbb{
+		background-color: brown;
+}

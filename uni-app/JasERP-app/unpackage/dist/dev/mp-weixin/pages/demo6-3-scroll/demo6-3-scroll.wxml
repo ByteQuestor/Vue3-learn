@@ -1,0 +1,1 @@
+<view><view wx:for="{{a}}" wx:for-item="item" class="">{{item.a}}</view></view><view wx:if="{{b}}" class="top"> 返回顶部 </view>

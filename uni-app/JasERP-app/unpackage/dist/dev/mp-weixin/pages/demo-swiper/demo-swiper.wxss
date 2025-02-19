@@ -1,0 +1,9 @@
+
+.swiper-wary{
+		background-color: firebrick;
+		height: 300rpx;
+}
+.img{
+		width: 100%;
+		height: 100%;
+}

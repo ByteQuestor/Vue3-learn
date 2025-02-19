@@ -1,0 +1,1 @@
+<view style="font-size:40rpx">{{a}}-{{b}}-{{c}}-{{d}}-{{e}}- </view><view style="font-size:40rpx">{{f}}</view>

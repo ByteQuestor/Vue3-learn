@@ -1,170 +1,183 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
+	"pages": [{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "主菜单"
 			}
 		},
 		{
-			"path" : "pages/demo-text/demo-text",
-			"style" : 
-			{
-				"navigationBarTitleText" : "text标签演示"
+			"path": "pages/demo-text/demo-text",
+			"style": {
+				"navigationBarTitleText": "text标签演示"
 			}
 		},
 		{
-			"path" : "pages/demo-image/demo-image",
-			"style" : 
-			{
-				"navigationBarTitleText" : "text标签演示"
+			"path": "pages/demo-image/demo-image",
+			"style": {
+				"navigationBarTitleText": "text标签演示"
 			}
 		},
 		{
-			"path" : "pages/demo-swiper/demo-swiper",
-			"style" : 
-			{
-				"navigationBarTitleText" : "轮播图演示"
+			"path": "pages/demo-swiper/demo-swiper",
+			"style": {
+				"navigationBarTitleText": "轮播图演示"
 			}
 		},
 		{
-			"path" : "pages/demo-input/demo-input",
-			"style" : 
-			{
-				"navigationBarTitleText" : "输入框"
+			"path": "pages/demo-input/demo-input",
+			"style": {
+				"navigationBarTitleText": "输入框"
 			}
 		},
 		{
-			"path" : "pages/demo-button/demo-button",
-			"style" : 
-			{
-				"navigationBarTitleText" : "按钮组件"
+			"path": "pages/demo-button/demo-button",
+			"style": {
+				"navigationBarTitleText": "按钮组件"
 			}
 		},
 		{
-			"path" : "pages/demo-form/demo-form",
-			"style" : 
-			{
-				"navigationBarTitleText" : "表单组件"
+			"path": "pages/demo-form/demo-form",
+			"style": {
+				"navigationBarTitleText": "表单组件"
 			}
 		},
 		{
-			"path" : "pages/demo-picker/demo-picker",
-			"style" : 
-			{
-				"navigationBarTitleText" : "选择器"
+			"path": "pages/demo-picker/demo-picker",
+			"style": {
+				"navigationBarTitleText": "选择器"
 			}
 		},
 		{
-			"path" : "pages/demo-vue3/demo-vue3",
-			"style" : 
-			{
-				"navigationBarTitleText" : "文本插值，属性绑定"
+			"path": "pages/demo-vue3/demo-vue3",
+			"style": {
+				"navigationBarTitleText": "文本插值，属性绑定"
 			}
 		},
 		{
-			"path" : "pages/demo5-2-ref/demo5-2-ref",
-			"style" : 
-			{
-				"navigationBarTitleText" : "响应式状态"
+			"path": "pages/demo5-2-ref/demo5-2-ref",
+			"style": {
+				"navigationBarTitleText": "响应式状态"
 			}
 		},
 		{
-			"path" : "pages/demo5-3-ref/demo5-3-ref",
-			"style" : 
-			{
-				"navigationBarTitleText" : "ref深层次响应"
+			"path": "pages/demo5-3-ref/demo5-3-ref",
+			"style": {
+				"navigationBarTitleText": "ref深层次响应"
 			}
 		},
 		{
-			"path" : "pages/demo5-4-v-on/demo5-4-v-on",
-			"style" : 
-			{
-				"navigationBarTitleText" : "v-on事件"
+			"path": "pages/demo5-4-v-on/demo5-4-v-on",
+			"style": {
+				"navigationBarTitleText": "v-on事件"
 			}
 		},
 		{
-			"path" : "pages/demo5-5-v-model/demo5-5-v-model",
-			"style" : 
-			{
-				"navigationBarTitleText" : "双向绑定"
+			"path": "pages/demo5-5-v-model/demo5-5-v-model",
+			"style": {
+				"navigationBarTitleText": "双向绑定"
 			}
 		},
 		{
-			"path" : "pages/demo5-6-v-if-show/demo5-6-v-if-show",
-			"style" : 
-			{
-				"navigationBarTitleText" : "v-if和v-show"
+			"path": "pages/demo5-6-v-if-show/demo5-6-v-if-show",
+			"style": {
+				"navigationBarTitleText": "v-if和v-show"
 			}
 		},
 		{
-			"path" : "pages/demo5-7-v-for/demo5-7-v-for",
-			"style" : 
-			{
-				"navigationBarTitleText" : "v-for的用法"
+			"path": "pages/demo5-7-v-for/demo5-7-v-for",
+			"style": {
+				"navigationBarTitleText": "v-for的用法"
 			}
 		},
 		{
-			"path" : "pages/demo5-8-v-for-key/demo5-8-v-for-key",
-			"style" : 
-			{
-				"navigationBarTitleText" : "v-for中key的作用"
+			"path": "pages/demo5-8-v-for-key/demo5-8-v-for-key",
+			"style": {
+				"navigationBarTitleText": "v-for中key的作用"
 			}
 		},
 		{
-			"path" : "pages/demo5-9-computed/demo5-9-computed",
-			"style" : 
-			{
-				"navigationBarTitleText" : "计算属性"
+			"path": "pages/demo5-9-computed/demo5-9-computed",
+			"style": {
+				"navigationBarTitleText": "计算属性"
 			}
 		},
 		{
-			"path" : "pages/demo5-10-watch/demo5-10-watch",
-			"style" : 
-			{
-				"navigationBarTitleText" : "监听器"
+			"path": "pages/demo5-10-watch/demo5-10-watch",
+			"style": {
+				"navigationBarTitleText": "监听器"
 			}
 		},
 		{
-			"path" : "pages/demo6-1-Load-Show-Hide/demo6-1-Load-Show-Hide",
-			"style" : 
-			{
-				"navigationBarTitleText" : "加载显示隐藏界面函数"
+			"path": "pages/demo6-1-Load-Show-Hide/demo6-1-Load-Show-Hide",
+			"style": {
+				"navigationBarTitleText": "加载显示隐藏界面函数"
 			}
 		},
 		{
-			"path" : "pages/demo6-2/demo6-2",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
+			"path": "pages/demo6-2/demo6-2",
+			"style": {
+				"navigationBarTitleText": ""
 			}
 		},
 		{
-			"path" : "pages/demo6-3-scroll/demo6-3-scroll",
-			"style" : 
-			{
-				"navigationBarTitleText" : "滚动事件"
+			"path": "pages/demo6-3-scroll/demo6-3-scroll",
+			"style": {
+				"navigationBarTitleText": "滚动事件"
 			}
 		},
 		{
-			"path" : "pages/demo6-4-apiTo/demo6-4-apiTo",
-			"style" : 
-			{
-				"navigationBarTitleText" : "api跳转界面"
+			"path": "pages/demo6-4-apiTo/demo6-4-apiTo",
+			"style": {
+				"navigationBarTitleText": "api跳转界面"
 			}
 		},
 		{
-			"path" : "pages/demo6-5-getApp/demo6-5-getApp",
-			"style" : 
-			{
-				"navigationBarTitleText" : "获取全局变量"
+			"path": "pages/demo6-5-getApp/demo6-5-getApp",
+			"style": {
+				"navigationBarTitleText": "获取全局变量"
 			}
 		},
 		{
-			"path" : "pages/demo6-6-getCUrrentPage/demo6-6-getCUrrentPage",
+			"path": "pages/demo6-6-getCUrrentPage/demo6-6-getCUrrentPage",
+			"style": {
+				"navigationBarTitleText": "获取页面路由"
+			}
+		},
+		{
+			"path": "pages/demo7-1-pulldownrefresh/demo7-1-pulldownrefresh",
+			"style": {
+				"navigationBarTitleText": "下拉事件"
+			}
+		},
+		{
+			"path": "pages/demo7-2-tabbar/demo7-2-tabbar",
+			"style": {
+				"navigationBarTitleText": "菜单栏"
+			}
+		},
+		{
+			"path": "pages/demo7-2-tabbar/home/home",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/demo7-2-tabbar/sort/sort",
+			"style": {
+				"navigationBarTitleText": "分类菜单"
+			}
+		},
+		{
+			"path": "pages/demo7-2-tabbar/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的界面"
+			}
+		},
+		{
+			"path" : "pages/demo7-3-switchTab/demo7-3-switchTab",
 			"style" : 
 			{
-				"navigationBarTitleText" : "获取页面路由"
+				"navigationBarTitleText" : "跳转tab界面"
 			}
 		}
 	],
@@ -172,7 +185,44 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		//下面两个是下拉事件的属性
+		//backgroundColor是下拉后，那一部分的颜色
+		//enablePullDownRefresh表示全局刷新
+		//同样属性可以放到某个界面里
+		"backgroundColor": "#ccc",
+		"enablePullDownRefresh": true,
+		//下面的是触底加载，也就是说，距离底部还有200像素的时候，开始加载
+		"onReachBottomDistance": 200
+	},
+	//tabbar界面，写上后一定要重新编译才能在app和浏览器生效
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#ffff7f",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",//这个是菜单栏的上框线
+		"list": [{
+			//注意设置直接就是运行的界面
+			/*
+					如果要跳转到此首页，必须使用uni.switchTab
+			*/
+				"pagePath": "pages/demo7-2-tabbar/demo7-2-tabbar",
+				"text": "首页",
+				"iconPath": "/static/icon/home.png",
+				"selectedIconPath": "/static/icon/home_yes.png"
+			},
+			{
+				"pagePath": "pages/demo7-2-tabbar/sort/sort",
+				"text": "分类",
+				"iconPath": "/static/icon/sort.png",
+				"selectedIconPath": "/static/icon/sort_yes.png"
+			},
+			{
+				"pagePath": "pages/demo7-2-tabbar/mine/mine",
+				"text": "我的",
+				"iconPath": "/static/icon/mine.png",
+				"selectedIconPath": "/static/icon/mine_yes.png"
+			}
+		]
 	},
 	"uniIdRouter": {}
 }

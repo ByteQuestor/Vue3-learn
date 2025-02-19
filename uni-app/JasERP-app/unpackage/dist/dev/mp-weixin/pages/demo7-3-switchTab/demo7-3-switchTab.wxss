@@ -1,0 +1,7 @@
+
+.nav{
+	       	font-size: 50rpx;
+	       	background-color: aquamarine;
+	       	padding: 20rpx;
+	       	margin: 20rpx;
+}

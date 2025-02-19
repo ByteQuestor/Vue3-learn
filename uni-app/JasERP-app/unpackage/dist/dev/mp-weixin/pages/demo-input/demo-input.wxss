@@ -1,0 +1,6 @@
+
+.ipt{
+		margin: 20rpx;
+		border: 2rpx solid royalblue;
+		padding: 20rpx;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"demo-swiper.js","sources":["D:/root/green/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvZGVtby1zd2lwZXIvZGVtby1zd2lwZXIudnVl"],"sourcesContent":["import MiniProgramPage from 'E:/User/wzy/github/Vue3-learn/uni-app/JasERP-app/pages/demo-swiper/demo-swiper.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;;;;;AACA,GAAG,WAAW,eAAe;"}
