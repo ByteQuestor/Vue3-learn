@@ -13,6 +13,12 @@
 <script setup>
 	
 	let title = "nihao"
+	
+	uni.setStorageSync('name','王子阳')
+	uni.setStorageSync('people',{name:'王子阳',age:24,address:'河南省'})
+	console.log(uni.getStorageSync('name'))
+	console.log(uni.getStorageSync('people'))
+	uni.removeStorageSync('name')
 </script>
 
 <style>

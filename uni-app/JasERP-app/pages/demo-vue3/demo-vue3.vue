@@ -27,6 +27,17 @@
 	let imgUrl = '../../static/demo-image.png'
 	let active = false	//为true时激活aaa效果
 	let height = 500
+	onLoad((event)=>{
+		console.log(event)
+		uni.setNavigationBarTitle({
+			title:event.title
+		})
+		uni.setNavigationBarColor({
+			frontColor:"#007aff",
+			backgroundColor:"#333"
+		})
+		// uni.showNavigationBarLoading()//加载图标
+	})
 </script>
 
 <style>
