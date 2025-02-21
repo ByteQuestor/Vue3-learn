@@ -1,5 +1,13 @@
 # 关于uniapp的学习
 
+# 组件库
+
+[介绍 | uView 2.0 - 全面兼容 nvue 的 uni-app 生态框架 - uni-app UI 框架](https://uviewui.com/components/intro.html)
+
+[布局 | ColorUI 使用文档](https://miren.lovemi.ren/colorui-document/pages/basics/layout/)
+
+[介绍 | ThorUI文档](https://thorui.cn/doc/docs/introduce.html)
+
 # 六、页面
 
 ## 6.1，页面生命周期
