@@ -1,7 +1,7 @@
 /*
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 17:23:48
- * @LastEditTime: 2025-02-23 17:41:04
+ * @LastEditTime: 2025-02-23 17:58:05
  * @FilePath: \vantLearn\src\api\user.js
  * @Description: 
  * 
@@ -11,7 +11,7 @@ import request from "../utils/request.js"
 export const login = (data) => {
 	return request({
         method: "post",
-		url: "/user/login",
+		url: "getMenu",
         data,
 	})
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:18:33
- * @LastEditTime: 2025-02-23 15:19:39
+ * @LastEditTime: 2025-02-23 17:55:30
  * @FilePath: \vantLearn\src\utils\request.js
  * @Description: 
  * 
@@ -10,7 +10,7 @@
 import axios from "axios";
 //创建了一个request实例
 const request = axios.create({
-  baseURL:"http://localhost:3005/",
+  baseURL:"http://localhost:8000",
   //请求拦截器
   //响应拦截器
 });
