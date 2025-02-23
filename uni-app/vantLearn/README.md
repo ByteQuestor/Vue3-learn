@@ -1,6 +1,6 @@
 # 移动端学习
 
-# 一、准备工作
+# 1、准备工作
 
 ## 1.1，使用vite搭建项目环境
 
@@ -117,7 +117,7 @@ module.exports = {
 
 
 
-# 二、封装请求模块
+# 2、封装请求模块
 
 ## 2.1，安装`axios`
 
@@ -141,7 +141,7 @@ const request = axios.create({
 export default request;
 ```
 
-# 三、创建登录路由
+# 3、创建登录路由
 
 ## 3.1，安装
 
@@ -209,5 +209,114 @@ createApp(App).use(Vant).use(router).mount('#app')
 
 
 
-# 四、登录
+# 4、登录
+
+> 使用自定义界面之前，先把自带的`style.css`删掉，然后取消`main.js`的引用
+
+## 4.1，登录静态实现
+
+### 4.1.1，基本实现
+
+```vue
+<template>
+    <div>
+        <van-nav-bar title="标题"/>
+        <van-field name="userName" label="用户名" placeholder="请输入用户名" />
+        <van-field type="password" name="userPwd" label="密码" placeholder="请输入密码" />
+        <div style="margin: 16px;">
+    <van-button round block type="primary" native-type="submit">
+      提交
+    </van-button>
+  </div>
+    </div>
+</template>
+```
+
+### 4.1.2，美化
+
+> 添加一个类，并且引入了左侧图标
+>
+> 关于`vant`图标库，在【基础组件】-【`icon`图标】
+
+```vue
+<template>
+    <div>
+        <van-nav-bar title="登录" class="page-nav-bar"/>
+        <van-field left-icon="manager" name="userName" label="用户名" placeholder="请输入用户名" />
+        <van-field left-icon="lock" type="password" name="userPwd" label="密码" placeholder="请输入密码" />
+        <div style="margin: 16px;">
+    <van-button round block type="primary" native-type="submit">
+      提交
+    </van-button>
+  </div>
+    </div>
+</template>
+```
+
+> 对于像导航栏这种，就可以在`src`下面创建`style/index.css`，当作全局样式
+
+```css
+.page-nav-bar {
+    background-color: #007AFF;
+}
+/*注意，下面这个组件，去浏览器选择元素看看它的class是啥*/
+.van-nav-bar__title.van-ellipsis {
+    color: #ffffff;
+}
+```
+
+然后去`main.js`里引入，全局变量其它组件也能使用
+
+```js
+import './style/index.css'
+```
+
+## 4.3，登录功能实现
+
+大致就是：构建登录请求、获取表单发送到服务端
+
+### 4.3.1，构建登录请求
+
+> 创建`src/api/user.js`，用于封装用户相关的请求
+
+```js
+import request from "./utils/request.js"
+export const login = (data) => {
+	return request({
+        method: "post",
+		url: "/user/login",
+        data,
+	})
+}
+```
+
+### 4.3.2，获取表单发送到服务端
+
+> 创建一个响应式对象，将这个响应式对象里的属性与文本框内的进行绑定
+
+1. 创建响应式对象
+   ```js
+   import {reactive, toRefs} from "vue";
+   export default{
+       setup(){
+           const user=reactive({
+               userName:'',
+               userPwd:''
+           })
+           return{
+               ...toRefs(user)
+           }
+       }
+   }
+   ```
+
+2. 绑定文本框，使用`v-model`
+   ```vue
+   <van-field left-icon="manager" name="userName" placeholder="请输入用户名" v-model="userName"/>
+   <van-field left-icon="lock" type="password" name="userPwd" placeholder="请输入密码" v-model="userName" />
+   ```
+
+   
+
+## 4.4，登录成功提示
 
