@@ -584,6 +584,8 @@ export default store;
 
 # 5、TabBar组件
 
+## 5.1,TabBar组件使用
+
 > 关于底部组件的介绍
 >
 > ①预留一个子路由`\views\layout\index.vue`
@@ -633,5 +635,61 @@ const routes = [
 
 然后去浏览器访问根路径即可
 
+## 5.2，路由规划
 
+```js
+const routes = [
+  {
+    path: '/login',
+    name: "login",
+    component: () => import('../views/login/index.vue')
+  },
+  {
+    path: '/',
+    name: "layout",
+    component: () => import('../views/layout/index.vue'),
+    children: [
+      {
+        path: '/home',
+        name: "home",
+        component: () => import('../views/home/home.vue')
+      },
+      {
+        path: '/data',
+        name: "data",
+        component: () => import('../views/data/data.vue')
+      },
+      {
+        path: '/addr',
+        name: "addr",
+        component: () => import('../views/addr/addr.vue')
+      },
+      {
+        path: '/mine',
+        name: "mine",
+        component: () => import('../views/mine/mine.vue')
+      },
+    ]
+  }
+]
+```
+
+> 根据路径设置不同的界面
+
+## 5.3，开启路由
+
+```vue
+<template>
+    <div>
+        <router-view></router-view>
+        <van-tabbar v-model="active" route>
+            <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
+            <van-tabbar-item icon="search" to="/data">报表</van-tabbar-item>
+            <van-tabbar-item icon="friends-o" to="/addr">客服</van-tabbar-item>
+            <van-tabbar-item icon="setting-o" to="/mine">我的</van-tabbar-item>
+        </van-tabbar>
+    </div>
+
+</template>
+```
 
