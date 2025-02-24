@@ -320,3 +320,211 @@ export const login = (data) => {
 
 ## 4.4，登录成功提示
 
+> `showLoadingToast`在数据返回之前会有加载效果，记得在网页中调到`3G`要不然看不到效果
+>
+> `showSuccessToast`和`showFailToast`，一个成功一个失败
+
+```js
+import { showSuccessToast, showFailToast,showLoadingToast  } from 'vant';
+// 定义 useSubmit 函数
+function useSubmit(user) {
+    
+    const onSubmit = async () => {
+        showLoadingToast({
+        message: '加载中...',
+        forbidClick: true,
+    });
+        console.log(user);
+        const res = await login(user);
+        if (res.data.code === 200) {
+            // console.log("用户登录成功");
+            // console.log(res.data);
+            showSuccessToast('登录成功');
+        } else {
+            // console.log("用户登录失败");
+            showFailToast('登陆失败');
+        }
+    };
+    return {
+        onSubmit
+    };
+};
+```
+
+
+
+## 4.5，表单校验规则
+
+1. 定义规则
+   ```js
+   // 定义 useSubmit 函数
+   function useSubmit(user) {
+       
+       const onSubmit = async () => {
+           showLoadingToast({
+           message: '加载中...',
+           forbidClick: true,
+       });
+           console.log(user);
+           const res = await login(user);
+           if (res.data.code === 200) {
+               // console.log("用户登录成功");
+               // console.log(res.data);
+               showSuccessToast('登录成功');
+           } else {
+               // console.log("用户登录失败");
+               showFailToast('登陆失败');
+           }
+       };
+   
+       const userFormRules = {
+           username: [
+               { required: true, message: '请输入用户名' }],
+           password: [
+               { required: true, message: '请输入密码' },  // 修正：将 message 改为 required
+               // { min: 3, max: 10, message: '长度在 3 到 10 个字符' }
+               {pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, message: '密码必须包含字母和数字，且长度至少为8位'}
+           ]
+       };
+       return {
+           onSubmit,
+           userFormRules
+       };
+   };
+   //注意解构
+   export default {
+       setup() {
+           const user = reactive({
+               username: '',
+               password: ''
+           });
+           return {
+               ...toRefs(user),
+               ...useSubmit(user),
+           };
+       }
+   };
+   ```
+
+2. 绑定到组件
+   ```vue
+   <van-field left-icon="manager" name="password" placeholder="请输入用户名" v-model="username"
+              :rules="userFormRules.name" />
+   <van-field left-icon="lock" type="password" name="password" placeholder="请输入密码" v-model="password"
+              :rules="userFormRules.pwd" />
+   ```
+
+## 4.6，处理用户`token`
+
+> 本次使用`vuex`，后续应替换为`pinia`
+
+```shell
+npm install vuex@next --save
+```
+
+大致思路：
+
+> 新建文件`\src\store\index.js`
+
+1. 创建一个`store`的容器
+
+2. 指定一个`state`来存储数据
+
+3. 指定一个方法专门修改容器中的数据
+   ```js
+   import { createStore } from 'vuex'
+   const store = createStore({
+       state: {
+           user: null
+       },
+       mutations: {
+           setUser(state, user) {
+               state.user = user
+           }
+       }
+   })
+   
+   export default store;
+   ```
+
+4. 去`main.js`里导入并`use`一下
+   ```js
+   import store from './store/index.js';
+   createApp(App).use(Vant).use(router).use(store).mount('#app')
+   ```
+
+> 至此，准备工作已经完成，那么如何将后端的数据存储到容器里面
+
+在发生`/`接收请求的界面
+
+```js
+import { useStore } from "vuex";
+const store = useStore();
+store.commit("setUser", res.data.data);
+```
+
+实际效果：
+
+```js
+function useSubmit(user) {
+    const store = useStore();
+    const onSubmit = async () => {
+        showLoadingToast({
+            message: '加载中...',
+            forbidClick: true,
+        });
+        console.log(user);
+        const res = await login(user);
+        if (res.data.code === 200) {
+            // console.log("用户登录成功");
+            // console.log(res.data);
+            store.commit("setUser", res.data.data);
+            showSuccessToast('登录成功');
+        } else {
+            // console.log("用户登录失败");
+            showFailToast('登陆失败');
+        }
+    };
+```
+
+> 但是这种情况下，浏览器一刷新数据就没了，因此需要进行持久化存储，操作如下：
+
+```js
+import { createStore } from 'vuex'
+const TOKEN_KEY = "ADMIN_USER_TOKEN"
+const store = createStore({
+    state: {
+        user: JSON.parse(window.localStorage.getItem(TOKEN_KEY))
+    },
+    mutations: {
+        setUser(state, user) {
+            state.user = user;
+            console.log(state.user)
+            window.localStorage.setItem(TOKEN_KEY, JSON.stringify(state.user))
+        }
+    }
+})
+
+export default store;
+```
+
+在其它界面直接调用
+
+```js
+<script>
+import { useStore } from 'vuex';
+export default {
+  setup() {
+    const store = useStore();
+    console.log("App.vue")
+    console.log(store);
+    console.log(store.state.user);
+  }
+}
+</script>
+```
+
+> 这样，就实现了本地的数据存储
+
+
+
