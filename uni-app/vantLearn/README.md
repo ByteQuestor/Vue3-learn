@@ -526,5 +526,59 @@ export default {
 
 > 这样，就实现了本地的数据存储
 
+## 4.7，封装本地存储
+
+> 因为本地存储方法比较常用，所以决定封装一下，位于`\src\utils\storage.js`
+
+```js
+//存储数据
+export const setItem = (key, value) => {
+    if (typeof value === 'object') {
+        value = JSON.stringify(value)
+    }
+    window.localStorage.setItem(key, value)
+};
+
+//获取数据
+export const getItem = (key) => {
+    const data = window.localStorage.getItem(key)
+    /**
+     * 小技巧，可以尝试把数据转为对象，如果成功，就返回对象，如果失败，就返回字符串
+     */
+    try {
+        return JSON.parse(data)
+    } catch (e) {
+        return data
+    }
+};
+
+//删除数据
+export const removeItem = (key) => {
+    window.localStorage.removeItem(key)
+};
+```
+
+> 改造调用存储方法
+
+```js
+import { createStore } from 'vuex';
+import { getItem, setItem } from '../utils/storage.js'
+const TOKEN_KEY = "ADMIN_USER_TOKEN"
+const store = createStore({
+    state: {
+        user: getItem(TOKEN_KEY)
+    },
+    mutations: {
+        setUser(state, user) {
+            state.user = user;
+            console.log(state.user)
+            setItem(TOKEN_KEY, state.user)
+        }
+    }
+})
+
+export default store;
+```
+
 
 
