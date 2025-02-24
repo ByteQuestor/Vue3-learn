@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-24 16:42:56
- * @LastEditTime: 2025-02-24 17:02:57
+ * @LastEditTime: 2025-02-24 21:05:16
  * @FilePath: \vantLearn\src\views\layout\index.vue
  * @Description: 
  * 
@@ -25,7 +25,7 @@ import { ref } from 'vue';
 
 export default {
   setup() {
-    const active = ref();
+    const active = ref(0);
     return { active };
   },
 };

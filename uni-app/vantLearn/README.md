@@ -693,3 +693,90 @@ const routes = [
 </template>
 ```
 
+
+
+# 6、各种布局
+
+## 6.1，未登录布局
+
+### 6.2，静态实现
+
+```vue
+<template>
+<div class="my-container">
+    <div class="header not-login">
+        <div class="login-btn">
+            <img class="mobile-img" src="../../assets/snack.png" alt="" />
+            <span class="text">注册/登录</span>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+
+</script>
+
+<style>
+.my-container{
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.header.not-login {
+    background-color: #0088ff; /* 设置头部蓝色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0; /* 调整内边距 */
+}
+.login-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mobile-img {
+    width: 80px; /* 设置图片宽度 */
+    height: 80px; /* 设置图片高度 */
+    border-radius: 50%; /* 使图片呈圆形 */
+}
+.text {
+    color: white; /* 文字颜色为白色 */
+    margin-top: 20px; /* 文字与图片的间距 */
+    font-size: 18px; /* 设置文字大小 */
+}
+</style>
+```
+
+### 6.3，添加跳转
+
+> 当点击图片、以及文字所在元素块的时候，会跳转，所以直接绑定这一个块
+
+```vue
+<div class="login-btn" @click="this.$router.push('/login')">
+    <img class="mobile-img" src="../../assets/snack.png" alt="" />
+    <span class="text">注册/登录</span>
+</div>
+```
+
+> 当跳转到登录/注册界面后，如果不想登录注册了，当然是需要一个返回到**我的**界面的导航按钮
+
+```vue
+<van-nav-bar title="登录" class="page-nav-bar">
+    <template #left>
+		<van-icon name="cross" size="18" @click="this.$router.back()"/>
+    </template>
+</van-nav-bar>
+```
+
+上面就是插槽，在之前它是这样的
+
+```vue
+<van-nav-bar title="登录" class="page-nav-bar" />
+```
+
+## 6.2，登录后布局
+
+## 6.3，宫格导航布局
+
+## 6.4，消息通知与退出登录布局
+

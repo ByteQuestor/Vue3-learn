@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:30:48
- * @LastEditTime: 2025-02-24 16:09:10
+ * @LastEditTime: 2025-02-24 21:18:55
  * @FilePath: \vantLearn\src\views\login\index.vue
  * @Description: 
  * 
@@ -9,7 +9,11 @@
 -->
 <template>
     <div>
-        <van-nav-bar title="登录" class="page-nav-bar" />
+        <van-nav-bar title="登录" class="page-nav-bar">
+            <template #left>
+                <van-icon name="cross" size="18" @click="this.$router.back()"/>
+            </template>
+        </van-nav-bar>
         <van-form @submit="onSubmit">
             <van-field left-icon="manager" name="password" placeholder="请输入用户名" v-model="username"
                 :rules="userFormRules.name" />
