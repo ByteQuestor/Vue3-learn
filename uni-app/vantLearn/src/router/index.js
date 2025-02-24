@@ -1,7 +1,7 @@
 /*
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:23:22
- * @LastEditTime: 2025-02-23 15:27:56
+ * @LastEditTime: 2025-02-24 17:03:58
  * @FilePath: \vantLearn\src\router\index.js
  * @Description: 
  * 
@@ -12,9 +12,36 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     path: '/login',
-    name:"login",
+    name: "login",
     component: () => import('../views/login/index.vue')
   },
+  {
+    path: '/',
+    name: "layout",
+    component: () => import('../views/layout/index.vue'),
+    children: [
+      {
+        path: '/home',
+        name: "home",
+        component: () => import('../views/home/home.vue')
+      },
+      {
+        path: '/data',
+        name: "data",
+        component: () => import('../views/data/data.vue')
+      },
+      {
+        path: '/addr',
+        name: "addr",
+        component: () => import('../views/addr/addr.vue')
+      },
+      {
+        path: '/mine',
+        name: "mine",
+        component: () => import('../views/mine/mine.vue')
+      },
+    ]
+  }
 ]
 //2，创建路由实例
 const router = createRouter({
