@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './', //解决打包后的白屏问题
   plugins: [vue()],
    //解决跨域，如果需要的话
   //  server: {

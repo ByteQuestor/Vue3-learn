@@ -1,0 +1,1 @@
+<view class="container"><view wx:for="{{a}}" wx:for-item="module" wx:key="d" class="setting-item"><text>{{module.a}}</text><switch checked="{{module.b}}" bindchange="{{module.c}}"/></view></view>

@@ -1,0 +1,281 @@
+/* 导入外部的样式表文件，这里假设 index.scss 是一个包含其他样式定义的文件 */
+// @import "./index.scss";
+
+/* 定义页面整体的样式类，设置背景颜色为浅灰色，最小高度为视口高度的 100%，宽度为视口宽度的 100% */
+.page {
+    background: #d22929;
+    height: 100vh;
+    width: 100vw;
+
+    /* 定义页面头部的样式类，设置高度为视口高度的 10%，并使用 flex 布局 */
+   .header {
+        height: 10vh;
+        display: flex;
+    }
+
+    /* 定义头部左侧区域的样式类，设置 flex 相关属性，使其占据固定的 20% 宽度，高度为 100% */
+   .left {
+        flex: 0 0 20%;
+        height: 100%;
+
+        /* 定义左侧区域中图片上传部分的样式类，设置宽度和高度为 100%，圆角，背景颜色，使用 flex 布局居中内容 */
+       .imgs-upload {
+            width: 100%;
+            height: 100%;
+            border-radius: 12rpx;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 鼠标按下时的样式，改变背景颜色 */
+            &:active {
+                background: #ccc;
+            }
+            /* 定义图片上传区域中图片的样式，设置宽度和高度 */
+            image {
+                width: 60rpx;
+                height: 60rpx;
+            }
+        }
+    }
+
+    /* 定义头部右侧区域的样式类，设置 flex 相关属性，使其占据固定的 80% 宽度，高度为 100%，并使用 flex 布局且方向为列 */
+   .right {
+        flex: 0 0 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 定义右侧区域顶部和底部的样式类，设置它们的 flex 值为 1，使其在垂直方向上平均分配空间 */
+   .right-top,
+   .right-bottom {
+        flex: 1;
+    }
+
+    /* 定义头部输入框的样式类，设置为行内块元素，使其垂直居中 */
+   .header-input {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* 定义反馈表单部分的样式类，设置为绝对定位，最小高度为视口高度的 100%，宽度固定 */
+   .feedback {
+        position: absolute;
+        min-height: 100vh;
+        width: 750rpx;
+
+        /* 定义反馈表单中反馈类型选择部分的样式类，设置背景颜色，宽度，高度，使用 flex 布局并居中内容，添加内边距和外边距 */
+       .feedback-type {
+            background: #fff;
+            width: 750rpx;
+            display: flex;
+            height: 100rpx;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 15rpx;
+            margin: 20rpx 0;
+            /* 鼠标按下时的样式，改变背景颜色 */
+            &:active {
+                background: #f0f0f0;
+            }
+            /* 定义反馈类型选择部分中内部 view 元素的样式，分别设置第一个和最后一个 view 的样式 */
+            view {
+                &:first-child {
+                    font-size: 14px;
+                }
+                &:last-child {
+                    font-size: 12px;
+                    display: flex;
+                    align-items: center;
+                    color: #777;
+                    /* 定义最后一个 view 中图片的样式，设置宽度和高度 */
+                    image {
+                        width: 25rpx;
+                        height: 25rpx;
+                    }
+                }
+            }
+        }
+
+        /* 定义反馈表单中反馈内容输入部分的样式类，设置背景颜色，内边距和外边距 */
+       .feedback-content {
+            background: #fff;
+            padding: 15rpx;
+            margin: 20rpx 0;
+            /* 定义反馈内容输入部分中文本域的样式，设置字体大小和高度 */
+            textarea {
+                font-size: 14px;
+                height: 50rpx;
+            }
+            /* 定义反馈内容输入部分中图片展示区域的样式类，使用 flex 布局并设置换行 */
+           .feedback-imgs {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 15rpx; // 新增，区分文本区域和图片区域
+                /* 定义反馈内容输入部分中单个图片项的样式类，设置宽度、高度、背景颜色、圆角、外边距和定位 */
+               .feedback-imgs-item {
+                    width: 150rpx;
+                    height: 150rpx;
+                    background: #444;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 12rpx;
+                    margin: 10rpx;
+                    position: relative;
+                    /* 定义单个图片项上的遮罩层样式类，设置为绝对定位，覆盖整个图片项，添加背景颜色和文本样式 */
+                   .feedback-imgs-item-mask {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 150rpx;
+                        height: 150rpx;
+                        z-index: 1;
+                        background: rgba(0, 0, 0, .5);
+                        color: #fff;
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    /* 定义单个图片项中图片的样式，设置高度 */
+                    image {
+                        height: 150rpx;
+                    }
+                    /* 定义单个图片项上删除按钮的样式类，设置为绝对定位，添加背景颜色、圆角和内部图片样式 */
+                   .feedback-imgs-item-del {
+                        width: 40rpx;
+                        height: 40rpx;
+                        position: absolute;
+                        right: -15rpx;
+                        top: -15rpx;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 2;
+                        background: #fff;
+                        border-radius: 50%;
+                        image {
+                            width: 40rpx;
+                            height: 40rpx;
+                        }
+                    }
+                }
+                /* 定义反馈内容输入部分中图片上传区域的样式类，设置宽度、高度、圆角、背景颜色，使用 flex 布局居中内容 */
+               .feedback-imgs-upload {
+                    width: 150rpx;
+                    height: 150rpx;
+                    border-radius: 12rpx;
+                    margin: 10rpx;
+                    background: #ddd;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* 鼠标按下时的样式，改变背景颜色 */
+                    &:active {
+                        background: #ccc;
+                    }
+                    /* 定义图片上传区域中图片的样式，设置宽度和高度 */
+                    image {
+                        width: 60rpx;
+                        height: 60rpx;
+                    }
+                }
+            }
+        }
+
+        /* 定义反馈表单中提交按钮的样式类，设置宽度、颜色、背景颜色、字体大小、文本对齐方式、高度、行高、圆角和定位 */
+       .feedback-button {
+            width: 700rpx;
+            color: #fff;
+            background: #23D49D;
+            font-size: 16px;
+            text-align: center;
+            height: 80rpx;
+            line-height: 80rpx;
+            border-radius: 45rpx;
+            position: fixed;
+            bottom: 50rpx;
+            left: 25rpx;
+            /* 鼠标按下时的样式，改变背景颜色 */
+            &:active {
+                background: #1aa277;
+            }
+        }
+    }
+
+    /* 定义类型、型号、属性、单位相关的样式类，设置为绝对定位，宽度、最小高度，使用 flex 布局并添加过渡效果 */
+   .type,
+   .models,
+   .attribute,
+   .unit {
+        width: 80vh;
+        min-height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        transition: transform 0.3s ease;
+
+        /* 定义类型、型号、属性、单位相关的阴影部分的样式类，设置宽度、背景颜色，并添加动画效果 */
+       .type-shadow,
+       .models-shadow,
+       .attribute-shadow,
+       .unit-shadow {
+            width: 100rpx;
+            background: rgba(0, 0, 0, .5);
+            animation: shadow 600ms;    
+            @keyframes shadow {
+                0% {
+                    background: rgba(0, 0, 0, 0);
+                }
+                50% {
+                    background: rgba(0, 0, 0, 0);
+                }
+                100% {
+                    background: rgba(0, 0, 0, .5);
+                }
+            }
+        }
+
+        /* 定义类型、型号、属性、单位相关的列表部分的样式类，设置宽度、背景颜色、高度和溢出处理 */
+       .type-list,
+       .models-list,
+       .unit-list,
+       .attribute-list {
+            width: 650rpx;
+            background: #fff;
+            height: 100vh;
+            overflow-y: auto;
+
+            /* 定义类型、型号、属性、单位相关的列表项的样式类，设置为 flex 布局并为列方向，添加内边距、边框底部样式，以及鼠标按下时的样式 */
+           .type-list-item,
+           .models-list-item,
+           .unit-list-item,
+           .attribute-list-item {
+                display: flex;
+                flex-direction: column;
+                padding: 15rpx;
+                border-bottom: 1px solid #f0f0f0;
+                &:active {
+                    background: #ccc;
+                }
+                /* 定义列表项中内部文本元素的样式，分别设置第一个和最后一个文本的样式 */
+                text {
+                    &:first-child {
+                        font-size: 14px;
+                        margin-bottom: 8rpx;
+                        font-weight: bold;
+                    }
+                    &:last-child {
+                        font-size: 12px;
+                        color: #777;
+                    }
+                }
+            }
+        }
+    }
+}

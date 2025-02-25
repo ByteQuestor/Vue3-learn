@@ -1,0 +1,161 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "买卖"
+			}
+		},
+		{
+			"path": "pages/data/data",
+			"style": {
+				"navigationBarTitleText": "数据报表"
+			}
+		},
+		{
+			"path": "pages/abbr/abbr",
+			"style": {
+				"navigationBarTitleText": "客服中心"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/mine/settings/settings",
+			"style": {
+				"navigationBarTitleText": "设置界面"
+			}
+		},
+		{
+			"path": "pages/index/sale/sale",
+			"style": {
+				"navigationBarTitleText": "销售界面"
+			}
+		},
+		{
+			"path": "pages/index/buy/buy",
+			"style": {
+				"navigationBarTitleText": "采购界面"
+			}
+		},
+		{
+			"path": "pages/index/client/client",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/index/supperliers/supperliers",
+			"style": {
+				"navigationBarTitleText": "供应商界面"
+			}
+		},
+		{
+			"path": "pages/index/productions/productions",
+			"style": {
+				"navigationBarTitleText": "产品界面",
+				"backgroundColor": "#aaffff",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+								"text": "搜索",
+								"type": "none",
+								"color": "#007AFF",
+								"background": "#000000",
+								"fontSize": "16px",
+								"float": "right"
+							},
+							{
+								"text": "新增",
+								"type": "none",
+								"color": "#007AFF",
+								"background": "#000000",
+								"fontSize": "16px"
+							}
+						]
+					}
+				}
+			}
+
+		},
+		{
+			"path": "pages/index/cost/cost",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/index/returngoods/returngoods",
+			"style": {
+				"navigationBarTitleText": "退货界面"
+			}
+		},
+		{
+			"path": "pages/index/inventory/inventory",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/testPages/dumpForm/dumpForm",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/components/form/form",
+			"style": {
+				"navigationBarTitleText": "表单界面"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#00ffff",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#0000ff",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black", //这个是菜单栏的上框线
+		"list": [{
+				//注意设置直接就是运行的界面
+				/*
+						如果要跳转到此首页，必须使用uni.switchTab
+				*/
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/static/icon/home.png",
+				"selectedIconPath": "/static/icon/home_yes.png"
+			},
+			{
+				"pagePath": "pages/data/data",
+				"text": "报表",
+				"iconPath": "/static/icon/report.png",
+				"selectedIconPath": "/static/icon/report_yes.png"
+			},
+			{
+				"pagePath": "pages/abbr/abbr",
+				"text": "客服",
+				"iconPath": "/static/icon/abbr.png",
+				"selectedIconPath": "/static/icon/abbr_yes.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "/static/icon/mine.png",
+				"selectedIconPath": "/static/icon/mine_yes.png"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}

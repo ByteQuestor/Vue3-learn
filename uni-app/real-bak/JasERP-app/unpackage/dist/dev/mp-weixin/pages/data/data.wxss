@@ -1,0 +1,11 @@
+
+.container {
+		padding: 10rpx;
+		/* 使用视口宽度百分比设置内边距 */
+		background-color: #f7f7f7;
+}
+.function-btn{
+		padding: 10rpx;
+		width:50%;
+		margin: 20rpx;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"abbr.js","sources":["D:/root/green/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvYWJici9hYmJyLnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'E:/User/wzy/github/JasERP/JasERP-app/pages/abbr/abbr.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

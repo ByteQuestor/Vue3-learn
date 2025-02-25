@@ -1,7 +1,7 @@
 /*
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:23:22
- * @LastEditTime: 2025-02-25 09:46:31
+ * @LastEditTime: 2025-02-25 14:57:28
  * @FilePath: \vantLearn\src\router\index.js
  * @Description: 
  * 
@@ -24,7 +24,7 @@ const routes = [
       {
         path: '',
         redirect: '/home'
-    },
+      },
       {
         path: '/home',
         name: "home",

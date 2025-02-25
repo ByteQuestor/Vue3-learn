@@ -1,0 +1,1 @@
+<view> 这里是数据报表 <view class="container"><button wx:for="{{a}}" wx:for-item="item" wx:key="b" class="function-btn" type="primary">{{item.a}}</button></view></view>
