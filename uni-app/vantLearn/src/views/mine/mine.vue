@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-24 16:56:22
- * @LastEditTime: 2025-02-24 21:55:15
+ * @LastEditTime: 2025-02-25 10:50:27
  * @FilePath: \vantLearn\src\views\mine\mine.vue
  * @Description: 
  * 
@@ -10,17 +10,18 @@
 <template>
     <div class="my-container">
         <!-- 未登录状态 -->
-        <div class="header not-login">
+        <div v-if="!userState" class="header not-login">
             <div class="login-btn" @click="this.$router.push('/login')">
                 <img class="mobile-img" src="../../assets/snack.png" alt="" />
                 <span class="text">注册/登录</span>
             </div>
         </div>
         <!-- 已登录状态 -->
-        <div class="header user-info">
+        <div v-else class="header user-info">
             <div class="base-info">
                 <div class="left">
-                    <van-image fit="cover" src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg" class="avatar"></van-image>
+                    <van-image fit="cover" src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                        class="avatar"></van-image>
                     <span class="name">茉莉花工作室首款</span>
                 </div>
                 <div class="right">
@@ -48,16 +49,60 @@
                 </div>
             </div>
         </div>
+
+        <!---宫格布局-->
+        <van-grid :column-num="2" clickable>
+            <van-grid-item icon="star-o" text="文字" />
+            <van-grid-item icon="clock-o" text="文字" />
+        </van-grid>
+
+        <!---消息通知与退出登录-->
+        <van-cell title="消息通知" is-link />
+        <van-cell title="功能设置" is-link />
+        <van-cell title="退出登录" class="logout-cell" v-if="userState" @click="onLogout" />
     </div>
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { computed } from "vue";
+import { showConfirmDialog } from 'vant';
+function userLogout(store) {
+    const onLogout = () => {
+        //在这里添加退出登录的逻辑
+        showConfirmDialog({
+            // title: '标题',
+            message:
+                '确认退出吗？',
+        })
+            .then(() => {
+                // 确认按钮
+                // console.log("退出")
+                store.commit("setUser", null);
+            })
+            .catch(() => {
+                // 取消按钮
+                console.log("取消")
+            });
+    }
+    return {
+        onLogout,
+
+    }
+}
 export default {
-    // 这里可以添加组件的逻辑代码
+    setup() {
+        const store = useStore();
+        const userState = computed(() => store.state.user);
+        return {
+            userState,
+            ...userLogout(store)
+        };
+    }
 }
 </script>
 
-<style scoped>
+<style>
 .my-container {
     height: 100%;
     background-color: #f5f5f5;
@@ -146,5 +191,16 @@ export default {
     color: #666;
     font-size: 14px;
     margin-top: 0;
+}
+
+.van-grid-item__icon {
+    color: #eb5253;
+}
+
+.logout-cell {
+    text-align: center;
+    color: #d86262;
+    height: 120px;
+    margin-top: 9px;
 }
 </style>

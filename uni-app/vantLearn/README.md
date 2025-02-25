@@ -776,7 +776,566 @@ const routes = [
 
 ## 6.2，登录后布局
 
+```vue
+<div class="header user-info">
+    <div class="base-info">
+        <div class="left">
+            <van-image fit="cover" src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                       class="avatar"></van-image>
+            <span class="name">茉莉花工作室首款</span>
+        </div>
+        <div class="right">
+            <van-button size="mini" round>
+                编辑资料
+            </van-button>
+        </div>
+    </div>
+    <div class="data-stats">
+        <div class="data-item">
+            <span class="count">123</span>
+            <span class="text">头条</span>
+        </div>
+        <div class="data-item">
+            <span class="count">456</span>
+            <span class="text">粉丝</span>
+        </div>
+        <div class="data-item">
+            <span class="count">789</span>
+            <span class="text">关注</span>
+        </div>
+        <div class="data-item">
+            <span class="count">789</span>
+            <span class="text">关注</span>
+        </div>
+    </div>
+</div>
+```
+
+> `CSS`效果
+
+```css
+.user-info {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info .base-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-info .left {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .left .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+.user-info .left .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-info .right {
+    display: flex;
+    align-items: center;
+}
+
+.data-stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-item .count {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.data-item .text {
+    color: #666;
+    font-size: 14px;
+    margin-top: 0;
+}
+```
+
+
+
 ## 6.3，宫格导航布局
 
+> `ERP`的首页也将采取此布局
+
+```vue
+<!---宫格布局-->
+<van-grid :column-num="2" clickable>
+    <van-grid-item icon="star-o" text="文字" />
+    <van-grid-item icon="clock-o" text="文字" />
+</van-grid>
+```
+
+代码说明：
+
+`:column-num="2"`说明每行两列
+
+`clickable`点击的动画
+
+> 更改图标样式，至于为什么是这个标签，去渲染后的界面用选择器选择对应元素后得到的
+
+```css
+.van-grid-item__icon {
+    color: #eb5253;
+}
+```
+
 ## 6.4，消息通知与退出登录布局
+
+> 子界面将会用到这种布局
+
+```vue
+<!---消息通知与退出登录-->
+<van-cell title="消息通知"  is-link/>
+<van-cell title="功能设置"  is-link/>
+<van-cell title="退出登录"  class="logout-cell"/>
+```
+
+`is-link`就是右侧那个小箭头
+
+> 样式：此样式比较万能，主要效果是文字居中和改变颜色
+
+```css
+.logout-cell{
+    text-align: center;
+    color: #d86262;
+    height: 120px;
+    margin-top: 9px;
+}
+```
+
+
+
+# 7、处理页面显示状态
+
+## 7.1,登录与未登录显示不同界面
+
+> 根据数据的不同，显示的界面也有所不同，在ERP中，如果要定制页面需求，那么就可以通过此方法进行定制显示
+
+>
+>已处理登录/未登录为例
+>
+>+ 如果能够获取到用户信息，就显示A元素块
+>
+>+ 如果获取不到就是未登录，就显示B元素块
+
+通过`vuex`进行获取数据,在哪个界面进行判断就在哪个界面写
+
+```vue
+<template>
+<div class="my-container">
+    <!-- 未登录状态 -->
+    <div v-if="!userState" class="header not-login">
+        <div class="login-btn" @click="this.$router.push('/login')">
+            <img class="mobile-img" src="../../assets/snack.png" alt="" />
+            <span class="text">注册/登录</span>
+    </div>
+    </div>
+    <!-- 已登录状态 -->
+    <div v-else class="header user-info">
+        <div class="base-info">
+            <div class="left">
+                <van-image fit="cover" src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                           class="avatar"></van-image>
+                <span class="name">茉莉花工作室首款</span>
+    </div>
+            <div class="right">
+                <van-button size="mini" round>
+                    编辑资料
+    </van-button>
+    </div>
+    </div>
+        <div class="data-stats">
+            <div class="data-item">
+                <span class="count">123</span>
+                <span class="text">头条</span>
+    </div>
+            <div class="data-item">
+                <span class="count">456</span>
+                <span class="text">粉丝</span>
+    </div>
+            <div class="data-item">
+                <span class="count">789</span>
+                <span class="text">关注</span>
+    </div>
+            <div class="data-item">
+                <span class="count">789</span>
+                <span class="text">关注</span>
+    </div>
+    </div>
+    </div>
+
+    <!---宫格布局-->
+    <van-grid :column-num="2" clickable>
+        <van-grid-item icon="star-o" text="文字" />
+        <van-grid-item icon="clock-o" text="文字" />
+    </van-grid>
+
+    <!---消息通知与退出登录-->
+    <van-cell title="消息通知" is-link />
+    <van-cell title="功能设置" is-link />
+    <van-cell title="退出登录" class="logout-cell" v-if="userState" />
+    </div>
+</template>
+
+<script>
+    import { useStore } from "vuex";
+    import { computed } from "vue";
+    export default {
+        setup() {
+            const store = useStore();
+            const userState = computed(() => store.state.user);
+            return {
+                userState,
+            };
+        }
+    }
+</script>
+<style>
+    /**页面无变化**/
+</style>
+```
+
+## 7.2,优化TabBar显示
+
+> 当未登录时,我的按钮显示**未登录**,登陆后显示**我的**
+
+```vue
+<!--layout.vue-->
+<template>
+<div>
+    <router-view></router-view>
+    <van-tabbar route><!-- v-model="active"-->
+        <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
+        <van-tabbar-item icon="search" to="/data">报表</van-tabbar-item>
+        <van-tabbar-item icon="friends-o" to="/addr">客服</van-tabbar-item>
+        <van-tabbar-item icon="setting-o" to="/mine">{{userState?"我的":"未登录"}}</van-tabbar-item>
+    </van-tabbar>
+    </div>
+
+</template>
+
+<script>
+    import { ref,computed } from 'vue';
+    import { useStore } from "vuex";
+    export default {
+        setup() {
+            const active = ref();
+            const store = useStore();
+            const userState = computed(() => store.state.user);
+            return { active,userState };
+        },
+    };
+</script>
+```
+
+## 7.3,登录成功跳转
+
+> 点击登录,登录成功后要跳转,
+>
+> 一共就两步骤:①导入路由,②在跳转的地方跳转
+
+```vue
+<!--login.vue-->
+import userRouter  from '../../router';
+userRouter.push('/mine')
+```
+
+## 7.4,退出登录
+
+总共分为3步
+
+①为退出按钮绑定一个方法
+
+②在方法里调用`vant`组件,点击确定后,重新设置用户存储信息为空就行了
+
+```vue
+<template>
+    <div class="my-container">
+        <!-- 未登录状态 -->
+        <div v-if="!userState" class="header not-login">
+            <div class="login-btn" @click="this.$router.push('/login')">
+                <img class="mobile-img" src="../../assets/snack.png" alt="" />
+                <span class="text">注册/登录</span>
+            </div>
+        </div>
+        <!-- 已登录状态 -->
+        <div v-else class="header user-info">
+            <div class="base-info">
+                <div class="left">
+                    <van-image fit="cover" src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+                        class="avatar"></van-image>
+                    <span class="name">茉莉花工作室首款</span>
+                </div>
+                <div class="right">
+                    <van-button size="mini" round>
+                        编辑资料
+                    </van-button>
+                </div>
+            </div>
+            <div class="data-stats">
+                <div class="data-item">
+                    <span class="count">123</span>
+                    <span class="text">头条</span>
+                </div>
+                <div class="data-item">
+                    <span class="count">456</span>
+                    <span class="text">粉丝</span>
+                </div>
+                <div class="data-item">
+                    <span class="count">789</span>
+                    <span class="text">关注</span>
+                </div>
+                <div class="data-item">
+                    <span class="count">789</span>
+                    <span class="text">关注</span>
+                </div>
+            </div>
+        </div>
+
+        <!---宫格布局-->
+        <van-grid :column-num="2" clickable>
+            <van-grid-item icon="star-o" text="文字" />
+            <van-grid-item icon="clock-o" text="文字" />
+        </van-grid>
+
+        <!---消息通知与退出登录-->
+        <van-cell title="消息通知" is-link />
+        <van-cell title="功能设置" is-link />
+        <van-cell title="退出登录" class="logout-cell" v-if="userState" @click="onLogout" />
+    </div>
+</template>
+
+<script>
+import { useStore } from "vuex";
+import { computed } from "vue";
+import { showConfirmDialog } from 'vant';
+function userLogout(store) {
+    const onLogout = () => {
+        //在这里添加退出登录的逻辑
+        showConfirmDialog({
+            // title: '标题',
+            message:
+                '确认退出吗？',
+        })
+            .then(() => {
+                // 确认按钮
+                // console.log("退出")
+                store.commit("setUser", null);
+            })
+            .catch(() => {
+                // 取消按钮
+                console.log("取消")
+            });
+    }
+    return {
+        onLogout,
+
+    }
+}
+export default {
+    setup() {
+        const store = useStore();
+        const userState = computed(() => store.state.user);
+        return {
+            userState,
+            ...userLogout(store)
+        };
+    }
+}
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# BUG修复
+
+## 修复5、TabBar组件路由
+
+> Bug描述：
+>
+> ①如果设置了`const active = ref(0);`，仅在首次访问`/`路径时处于`home`界面，而且么`home`按钮处于常亮状态，可以切到其它三个界面，而且其它三个界面也正常切换，但是无法再切换回`home`界面
+
+> 解决方案
+>
+> 为了实现进入后默认在`home`页的效果，需要在路由中重定向至`home`界面
+>
+> 开启了路由以后，无需再双向绑定
+
+```vue
+<template>
+    <div>
+        <router-view></router-view>
+        <van-tabbar route><!-- v-model="active"-->
+            <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
+            <van-tabbar-item icon="search" to="/data">报表</van-tabbar-item>
+            <van-tabbar-item icon="friends-o" to="/addr">客服</van-tabbar-item>
+            <van-tabbar-item icon="setting-o" to="/mine">我的</van-tabbar-item>
+        </van-tabbar>
+    </div>
+
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const active = ref();
+    return { active };
+  },
+};
+</script>
+```
+
+路由规划
+
+```js
+{
+    path: '/',
+    name: "layout",
+    component: () => import('../views/layout/index.vue'),
+    children: [
+      // 当访问根路径 / 时，重定向到 /home 路由
+      {
+        path: '',
+        redirect: '/home'
+    },
+      {
+        path: '/home',
+        name: "home",
+        component: () => import('../views/home/index.vue')
+      },
+      {
+        path: '/data',
+        name: "data",
+        component: () => import('../views/data/data.vue')
+      },
+      {
+        path: '/addr',
+        name: "addr",
+        component: () => import('../views/addr/addr.vue')
+      },
+      {
+        path: '/mine',
+        name: "mine",
+        component: () => import('../views/mine/mine.vue')
+      },
+    ]
+  }
+```
 

@@ -1,7 +1,7 @@
 /*
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:23:22
- * @LastEditTime: 2025-02-24 17:03:58
+ * @LastEditTime: 2025-02-25 09:46:31
  * @FilePath: \vantLearn\src\router\index.js
  * @Description: 
  * 
@@ -20,10 +20,15 @@ const routes = [
     name: "layout",
     component: () => import('../views/layout/index.vue'),
     children: [
+      // 当访问根路径 / 时，重定向到 /home 路由
+      {
+        path: '',
+        redirect: '/home'
+    },
       {
         path: '/home',
         name: "home",
-        component: () => import('../views/home/home.vue')
+        component: () => import('../views/home/index.vue')
       },
       {
         path: '/data',

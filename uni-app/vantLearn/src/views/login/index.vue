@@ -1,7 +1,7 @@
 <!--
  * @Author: 【闲鱼】混吃等死真君 【Github】Bytequestor
  * @Date: 2025-02-23 15:30:48
- * @LastEditTime: 2025-02-24 21:18:55
+ * @LastEditTime: 2025-02-25 10:29:30
  * @FilePath: \vantLearn\src\views\login\index.vue
  * @Description: 
  * 
@@ -35,6 +35,7 @@ import { reactive, toRefs } from "vue";
 import { login } from "../../api/user";
 import { showSuccessToast, showFailToast, showLoadingToast } from 'vant';
 import { useStore } from "vuex";
+import userRouter  from '../../router';
 // 定义 useSubmit 函数
 function useSubmit(user) {
     const store = useStore();
@@ -50,6 +51,7 @@ function useSubmit(user) {
             // console.log(res.data);
             store.commit("setUser", res.data.data);
             showSuccessToast('登录成功');
+            userRouter.push('/mine')
         } else {
             // console.log("用户登录失败");
             showFailToast('登陆失败');
